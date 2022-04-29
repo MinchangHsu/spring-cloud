@@ -1,0 +1,30 @@
+server:
+  port: 8000
+spring:
+  jpa:
+    # print SQL
+    show-sql: true
+logging:
+  level:
+    root: INFO
+    # setting hibernate SQL log
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        # 開放哪些監控端點 Ex. 所以 ＆ info所有
+        include: "*"
+  endpoint:
+    health:
+      # 是否顯示 health check detail
+      show-details: always
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+  java:
+    source: @java.version@
+    target: @java.version@

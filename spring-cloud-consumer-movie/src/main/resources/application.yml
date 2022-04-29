@@ -1,0 +1,29 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: consumer-user
+  cloud:
+    zookeeper:
+      discovery:
+        enabled: true
+  jpa:
+    # print SQL
+    show-sql: true
+logging:
+  level:
+    root: INFO
+    # setting hibernate SQL log
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      # health check detail
+      show-details: always
+
